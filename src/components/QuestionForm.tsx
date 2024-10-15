@@ -3,6 +3,7 @@
 import { AnswerData } from '@/type';
 import Image from 'next/image';
 import { useState } from 'react';
+import style from './QuestionForm.module.css';
 
 const QuestionForm = () => {
   const [question, setQuestion] = useState<string>('');
@@ -30,13 +31,16 @@ const QuestionForm = () => {
       <div>
         <p>{question}</p>
         <p>{answer.answer}</p>
-        {answer.image && (
+        {answer.image === '' ? (
+          <div className={style.loader} />
+        ) : (
           <Image
             src={answer.image}
             alt='결과 이미지'
             height={300}
             width={400}
           />
+          // <div className={style.loader} />
         )}
       </div>
     </div>
