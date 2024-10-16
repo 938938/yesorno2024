@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Nav from '@/components/Nav';
 
 export const metadata: Metadata = {
   title: '예, 혹은 아니오!',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ko'>
-      <body>{children}</body>
+      <body>
+        <Nav />
+        <div>{children}</div>
+      </body>
     </html>
   );
 }
