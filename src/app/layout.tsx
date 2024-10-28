@@ -15,8 +15,10 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body>
-        <Nav />
-        <div>{children}</div>
+        <div>
+          <Nav />
+          <div>{children}</div>
+        </div>
       </body>
     </html>
   );

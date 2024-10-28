@@ -43,7 +43,7 @@ const QuestionForm = () => {
   };
 
   return (
-    <div>
+    <div className={style.container}>
       <form onSubmit={handleAnswerForm}>
         <input name='question' />
         <button type='submit'>클릭</button>
