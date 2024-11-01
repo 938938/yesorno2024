@@ -2,7 +2,7 @@
 
 import useQuestionStore from '@/store/store';
 import Image from 'next/image';
-import style from './AnswerContainer.module.css';
+import Loading from '../common/Loading';
 
 const AnswerContainer = () => {
   const question = useQuestionStore((state) => state.question);
@@ -15,7 +15,7 @@ const AnswerContainer = () => {
       <div>
         <div>
           {loading ? (
-            <div className={style.loader} />
+            <Loading />
           ) : (
             <Image
               src={answer.image}
