@@ -1,5 +1,6 @@
 'use client';
 
+import { BRIGHT, WHITE } from '@/global/globalColor';
 import styled from 'styled-components';
 
 const Loading = () => {
@@ -12,19 +13,19 @@ const LoadingBar = styled.div`
   width: 45px;
   height: 40px;
   background: linear-gradient(
-      #0000 calc(1 * 100% / 6),
-      #fff8f0 0 calc(3 * 100% / 6),
-      #0000 0
+      ${WHITE} calc(1 * 100% / 6),
+      ${BRIGHT} 0 calc(3 * 100% / 6),
+      ${WHITE} 0
     ),
     linear-gradient(
-      #0000 calc(2 * 100% / 6),
-      #fff8f0 0 calc(4 * 100% / 6),
-      #0000 0
+      ${WHITE} calc(2 * 100% / 6),
+      ${BRIGHT} 0 calc(4 * 100% / 6),
+      ${WHITE} 0
     ),
     linear-gradient(
-      #0000 calc(3 * 100% / 6),
-      #fff8f0 0 calc(5 * 100% / 6),
-      #0000 0
+      ${WHITE} calc(3 * 100% / 6),
+      ${BRIGHT} 0 calc(5 * 100% / 6),
+      ${WHITE} 0
     );
   background-size: 10px 400%;
   background-repeat: no-repeat;
