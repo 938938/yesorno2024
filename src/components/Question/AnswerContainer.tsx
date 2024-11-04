@@ -3,6 +3,8 @@
 import useQuestionStore from '@/store/store';
 import Image from 'next/image';
 import Loading from '../common/Loading';
+import styled from 'styled-components';
+import { DARK, WHITE } from '@/global/globalColor';
 
 const AnswerContainer = () => {
   const question = useQuestionStore((state) => state.question);
@@ -12,8 +14,8 @@ const AnswerContainer = () => {
     <div>
       <p>{question}</p>
       <p>{answer.answer}</p>
-      <div>
-        <div>
+      <BackPaper>
+        <FrontPaper>
           {loading ? (
             <Loading />
           ) : (
@@ -25,10 +27,36 @@ const AnswerContainer = () => {
               unoptimized={true}
             />
           )}
-        </div>
-      </div>
+        </FrontPaper>
+      </BackPaper>
     </div>
   );
 };
 
 export default AnswerContainer;
+
+const BackPaper = styled.div`
+  position: relative;
+  width: 300px;
+  max-width: 600px;
+  height: 300px;
+  max-height: 700px;
+  padding: 20px;
+  border: 2px solid ${DARK};
+  transform: rotate(-2deg);
+  transition: all 1s;
+  margin-top: 30px;
+`;
+
+const FrontPaper = styled(BackPaper)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: ${WHITE};
+  margin-top: 0;
+  transform: rotate(2deg);
+  transition: all 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
