@@ -5,6 +5,7 @@ import AnswerContainer from './AnswerContainer';
 const QuestionForm = () => {
   return (
     <div className={style.container}>
+      <h1>예, 혹은 아니오!</h1>
       <QuestionInput />
       <AnswerContainer />
     </div>

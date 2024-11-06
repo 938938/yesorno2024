@@ -12,8 +12,10 @@ const AnswerContainer = () => {
   const loading = useQuestionStore((state) => state.loading);
   return (
     <div>
-      <p>{question}</p>
-      <p>{answer.answer}</p>
+      <AnswerBox>
+        <p>Q : {question}</p>
+        <p>A : {answer.answer}</p>
+      </AnswerBox>
       <BackPaper>
         <FrontPaper>
           {loading ? (
@@ -35,11 +37,18 @@ const AnswerContainer = () => {
 
 export default AnswerContainer;
 
+const AnswerBox = styled.div`
+  font-family: 'Nanum Brush Script', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+`;
+
 const BackPaper = styled.div`
   position: relative;
-  width: 300px;
+  width: 400px;
   max-width: 600px;
-  height: 300px;
+  height: 400px;
   max-height: 700px;
   padding: 20px;
   border: 2px solid ${DARK};
