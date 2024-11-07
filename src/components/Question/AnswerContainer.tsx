@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Loading from '../common/Loading';
 import styled from 'styled-components';
 import { DARK, WHITE } from '@/global/globalColor';
+import TypingText from './TypingText';
 
 const AnswerContainer = () => {
   const question = useQuestionStore((state) => state.question);
@@ -13,8 +14,14 @@ const AnswerContainer = () => {
   return (
     <div>
       <AnswerBox>
-        <p>Q : {question}</p>
-        <p>A : {answer.answer}</p>
+        {/* <p>Q : {question}</p> */}
+        {question && (
+          <>
+            <TypingText text={`Q : ${question || ''}`} />
+            <TypingText text={`A : ${answer?.answer || ''}`} />
+          </>
+        )}
+        {/* <p>A : {answer.answer}</p> */}
       </AnswerBox>
       <BackPaper>
         <FrontPaper>
