@@ -35,6 +35,7 @@ const QuestionInput = () => {
     const question = formData.get('question')!.toString();
     setLoading(true);
     setQuestion(question);
+    setAnswer({ answer: '', image: '' });
     if (inputRef.current) {
       inputRef.current.value = '';
     }

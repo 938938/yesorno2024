@@ -14,14 +14,16 @@ const AnswerContainer = () => {
   return (
     <div>
       <AnswerBox>
-        {/* <p>Q : {question}</p> */}
         {question && (
           <>
-            <TypingText text={`Q : ${question || ''}`} />
-            <TypingText text={`A : ${answer?.answer || ''}`} />
+            <p>
+              Q : <TypingText text={question || ''} />
+            </p>
+            <p>
+              A : <TypingText text={answer?.answer || ''} />
+            </p>
           </>
         )}
-        {/* <p>A : {answer.answer}</p> */}
       </AnswerBox>
       <BackPaper>
         <FrontPaper>

@@ -6,22 +6,23 @@ type TypingTextProps = {
   speed?: number;
 };
 
-const TypingText: React.FC<TypingTextProps> = ({ text, speed = 100 }) => {
+const TypingText: React.FC<TypingTextProps> = ({ text, speed = 50 }) => {
   const [displayedText, setDisplayedText] = useState<string>('');
 
   useEffect(() => {
     let index = 0;
     setDisplayedText('');
+
     const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + text[index]);
+      setDisplayedText(text.slice(0, index + 1));
       index++;
-      if (index === text.length - 1) clearInterval(interval);
+      if (index === text.length) clearInterval(interval);
     }, speed);
 
     return () => clearInterval(interval);
   }, [text, speed]);
 
-  return <div>{displayedText}</div>;
+  return <span>{displayedText}</span>;
 };
 
 export default TypingText;
