@@ -15,13 +15,6 @@ const QuestionInput = () => {
         throw Error(res.statusText);
       }
       const answer = await res.json();
-      if (
-        answer.image ===
-        'https://yesno.wtf/assets/no/3-80a6f5b5d6684674bcfeda34accca4e1.gif'
-      ) {
-        answer.image =
-          'https://yesno.wtf/assets/no/0-b6d3e555af2c09094def76cf2fbddf46.gif';
-      }
       setAnswer(answer);
     } catch (error) {
       console.error('Failed to fetch answer:', error);
