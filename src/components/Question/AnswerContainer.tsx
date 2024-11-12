@@ -4,7 +4,7 @@ import useQuestionStore from '@/store/store';
 import Image from 'next/image';
 import Loading from '../common/Loading';
 import styled from 'styled-components';
-import { DARK, WHITE } from '@/global/globalColor';
+import { DARK, ORAGNE, SHADOW, WHITE } from '@/global/globalColor';
 import TypingText from './TypingText';
 
 const AnswerContainer = () => {
@@ -60,10 +60,11 @@ const BackPaper = styled.div`
   height: 400px;
   max-height: 700px;
   padding: 20px;
-  border: 2px solid ${DARK};
+  box-shadow: ${SHADOW} 0px 5px 5px 0px;
   transform: rotate(-2deg);
   transition: all 1s;
   margin-top: 30px;
+  background-color: ${ORAGNE}50;
 `;
 
 const FrontPaper = styled(BackPaper)`
@@ -77,4 +78,5 @@ const FrontPaper = styled(BackPaper)`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: ${WHITE};
 `;
