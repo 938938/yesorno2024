@@ -1,3 +1,4 @@
+import { MINT, ORANGE } from '@/global/globalColor';
 import { AnswerData } from '@/type';
 import { create } from 'zustand';
 
@@ -8,6 +9,7 @@ type QuestionState = {
   setAnswer: (data: AnswerData) => void;
   loading: boolean;
   setLoading: (type: boolean) => void;
+  paperColor: string;
 };
 
 const NG = [
@@ -51,6 +53,7 @@ const useQuestionStore = create<QuestionState>((set) => ({
     answer: '',
     image: '',
   },
+  paperColor: '',
   loading: true,
   setQuestion: (text: string) => set({ question: text }),
   setAnswer: (data: AnswerData) => {
@@ -63,9 +66,11 @@ const useQuestionStore = create<QuestionState>((set) => ({
     }
     if (data.answer === 'yes') {
       data.answer = YES[Math.floor(Math.random() * YES.length)];
+      set({ paperColor: MINT });
     }
     if (data.answer === 'no') {
       data.answer = NO[Math.floor(Math.random() * NO.length)];
+      set({ paperColor: ORANGE });
     }
     set({ answer: data });
   },

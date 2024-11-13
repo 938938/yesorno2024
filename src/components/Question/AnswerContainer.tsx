@@ -4,13 +4,15 @@ import useQuestionStore from '@/store/store';
 import Image from 'next/image';
 import Loading from '../common/Loading';
 import styled from 'styled-components';
-import { DARK, ORAGNE, SHADOW, WHITE } from '@/global/globalColor';
+import { BRIGHT, SHADOW, WHITE } from '@/global/globalColor';
 import TypingText from './TypingText';
 
 const AnswerContainer = () => {
   const question = useQuestionStore((state) => state.question);
   const answer = useQuestionStore((state) => state.answer);
   const loading = useQuestionStore((state) => state.loading);
+  const paperColor = useQuestionStore((state) => state.paperColor);
+
   return (
     <div>
       <AnswerBox>
@@ -25,7 +27,7 @@ const AnswerContainer = () => {
           </>
         )}
       </AnswerBox>
-      <BackPaper>
+      <BackPaper color={paperColor}>
         <FrontPaper>
           {loading ? (
             <Loading />
@@ -53,7 +55,7 @@ const AnswerBox = styled.div`
   font-size: 20px;
 `;
 
-const BackPaper = styled.div`
+const BackPaper = styled.div<{ color?: string }>`
   position: relative;
   width: 400px;
   max-width: 600px;
@@ -64,7 +66,7 @@ const BackPaper = styled.div`
   transform: rotate(-2deg);
   transition: all 1s;
   margin-top: 30px;
-  background-color: ${ORAGNE}50;
+  background-color: ${(props) => (props.color ? props.color : `${BRIGHT}`)};
 `;
 
 const FrontPaper = styled(BackPaper)`
