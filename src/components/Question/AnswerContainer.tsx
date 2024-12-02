@@ -49,7 +49,6 @@ const AnswerContainer = () => {
 export default AnswerContainer;
 
 const AnswerBox = styled.div`
-  font-family: 'Nanum Brush Script', cursive;
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
