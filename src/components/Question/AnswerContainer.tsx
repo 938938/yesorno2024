@@ -49,6 +49,7 @@ const AnswerContainer = () => {
 export default AnswerContainer;
 
 const AnswerBox = styled.div`
+  height: 110px;
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
